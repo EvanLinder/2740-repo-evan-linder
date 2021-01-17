@@ -5,7 +5,7 @@ public class ELinder2740Ex1B1 {
 
         System.out.println("Customer: 101 Evan Linder");
         System.out.println("Thermometer#: 1001");
-        System.out.println("Average temperature:  ");
+
 
         int time1 = 0; int temperature1 = 60;
         int time2 = 10; int temperature2 = 70; int timeTemp1 = (time2 - time1) * temperature1;
