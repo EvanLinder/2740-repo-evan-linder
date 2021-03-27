@@ -28,22 +28,12 @@ public class Apartment {
 //        this.updated = LocalDateTime.now();
 //    }
 
-    public int getApartmentId() {
-        return apartmentId;
-    }
-    public String getApartmentNum() {
-        return apartmentNum;
-    }
-    public int getSquareFeet() {
-        return squareFeet;
-    }
+    public int getApartmentId() { return this.apartmentId; }
+    public String getApartmentNum() { return this.apartmentNum; }
+    public int getSquareFeet() { return this.squareFeet; }
     public int getBathrooms() { return this.bathrooms; }
-    public double getPrice() {
-        return price;
-    }
-    public LocalDateTime getUpdated() {
-        return updated;
-    }
+    public double getPrice() { return this.price; }
+    public LocalDateTime getUpdated() { return this.updated; }
 
     public String setApartmentId(int apartmentId) {
         String errMsg = "";
@@ -56,25 +46,58 @@ public class Apartment {
 
     public String setApartmentNum(String apartmentNum) {
         String errMsg = "";
-        errMsg = "ApartmentNum must be 1 to 4 characters";
+        if (apartmentNum == "" || apartmentNum == null) {
+            errMsg = "ApartmentNum is required";
+            return errMsg;
+        }
+        if (apartmentNum.length() < 1 || apartmentNum.length() > 4) {
+            errMsg = "ApartmentNum must be 1 to 4 characters";
+            return errMsg;
+        }
+        this.apartmentNum = apartmentNum;
         return errMsg;
     }
 
+
     public String setSquareFeet(int squareFeet) {
         String errMsg = "";
-        errMsg = Integer.toString(squareFeet) + " is invalid. Square feet must be > 200 and < 2000.";
+        if (squareFeet >= 200 && squareFeet <= 2000)
+        {this.squareFeet = squareFeet;}
+else
+        {errMsg = Integer.toString(squareFeet) + " is invalid. Square feet must be > 200 and < 2000.";}
+
         return errMsg;
     }
 
     public String setBathrooms(int bathrooms) {
         String errMsg = "";
-        errMsg = Integer.toString(bathrooms) + " is invalid. Bathrooms must be > 0 and < 4.";
+        if (bathrooms <= 0 || bathrooms >= 4)
+            {
+                errMsg = Integer.toString(bathrooms) + " is invalid. Bathrooms must be > 0 and < 4.";
+                return errMsg;
+            }
+        this.bathrooms= bathrooms;
         return errMsg;
+
     }
 
-    public void setPrice() {
-        double ratePerSqFoot = 0.0;
-        this.price = this.squareFeet * ratePerSqFoot;
+        public void setPrice() {
+            double ratePerSqFoot = 0.0;
+            if (this.squareFeet >= 1000)
+                ratePerSqFoot = 1.0;
+            else if (this.squareFeet >= 600)
+                ratePerSqFoot = 1.2;
+            else if (this.squareFeet >= 400)
+                ratePerSqFoot = 1.4;
+            else if (this.squareFeet >= 200)
+                ratePerSqFoot = 1.6;
+            {
+
+               this.price = this.squareFeet * ratePerSqFoot;
+               this.price += (bathrooms - 1) * 100;
+
+            }
+
     }
 
     public void setUpdated(LocalDateTime updated) {
