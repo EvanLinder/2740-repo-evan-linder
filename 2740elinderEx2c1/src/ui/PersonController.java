@@ -29,7 +29,6 @@ public class PersonController {
          this.firstNameTextField.setText("");
          this.lastNameTextField.setText("");
          this.userNameTextField.setText("");
-
          this.firstNameTextField.requestFocus();
         }
         else {
