@@ -8,7 +8,7 @@ public class SensorReading {
     private LocalDateTime dateTime;
     private float value;
 
-    public SensorReading(int sensorReadingId, int sensorId, LocalDateTime dateTime, float value) {
+    public SensorReading(int sensorReadingId, int sensorId, float value) {
         this.sensorReadingId = sensorReadingId;
         this.sensorId = sensorId;
         this.value = value;

@@ -49,8 +49,9 @@ public class Sensor {
     }
 
     public void addSensorReading(float value) {
+        LocalDateTime dateTime = null;
         this.sensorReadings.add(
-                new SensorReading(nextSensorReadingIndex + 1001, this.sensorId, value));
+                new SensorReading(nextSensorReadingIndex + 1001, this.sensorId, dateTime, value));
         nextSensorReadingIndex++;
     }
 
