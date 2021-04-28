@@ -5,6 +5,7 @@ import business.Person;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import business.Apartment;
@@ -32,6 +33,10 @@ public class ApartmentController {
     private Button displayButton2;
     @FXML
     private Button displayButton3;
+    @FXML
+    private Button saveApartmentButton;
+    @FXML
+    private ComboBox apartmentsComboBox;
 
     public static int tryParseInt (String value) {
         try {
@@ -310,5 +315,5 @@ public class ApartmentController {
             this.apartmentIdTextField.requestFocus();
         }
     }
-}
+
 
